@@ -13,7 +13,7 @@ lr=1e-4
 num_epochs=5
 ds_config="../config/ds_z0_config.json"
 #"ga" "ga_gdr" "ga_klr" 
-loss_types=("AGO") #  
+loss_types=("AGT") #  
 max_length=512
 run_name="${model_family}_${loss_type}_CE_forget_loss_${max_length}_${lr}"
 

@@ -15,7 +15,7 @@ CUDA_ID=0
 # num_epochs=5
 # ds_config="../config/ds_z0_config.json"
 # # "ga_gdr" "ga_klr" "npo_gdr" "npo_klr" "npo" 
-# loss_types=( "ago_wo_aso" "ago_wo_gbg" "ago_w_hard_aso" "ago_wo_lag") #  
+# loss_types=( "agt_wo_ao" "agt_wo_gbg" "agt_w_hard_ao" "agt_wo_AGT") #  
 # max_length=512
 # ema_decay=0.9
 # adv_update_threshold=2
@@ -42,7 +42,7 @@ for adapter_dir in "$memory_dir"/*/; do
   adapter_name=$(basename "$adapter_dir")
   echo "Processing adapter: $adapter_name"
 
-#   if [[ "$adapter_name" != "tofu-gemma-2-2b-it_AGO_512_1e-4" ]]; then
+#   if [[ "$adapter_name" != "tofu-gemma-2-2b-it_AGT_512_1e-4" ]]; then
 #     echo "Skipping $adapter_name as it does not match the target adapter."
 #     continue
 #   fi

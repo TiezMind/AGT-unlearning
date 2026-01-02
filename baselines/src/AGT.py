@@ -147,7 +147,7 @@ def calculate_conflict_penalty(
         penalty_loss = torch.tensor(0.0, device=gu.device)
     return penalty_loss,cosine_sim
 
-class LatentAdversarialNPOGBGASOHookUnlearner(Trainer):
+class AGTUnlearner(Trainer):
     """
     一个实现了“潜在对抗遗忘学习”算法的Hugging Face训练器。
     该算法源于您提供的研究文档，其核心思想是在模型的隐空间（Latent Space）
@@ -179,13 +179,13 @@ class LatentAdversarialNPOGBGASOHookUnlearner(Trainer):
         # 扰动向量
         self.adversarial_delta = None
 
-        # ASO专用参数
+        # AO专用参数
         self.gradient_accumulation_steps = kwargs.pop("gradient_accumulation_steps", 8)
         self.gradient_edit = kwargs.pop("gradient_edit", True)
         self.flattened_gradient = 0
         self.flattened_memory_accumulation = 0.0
         self.steps = 0
-        # ASO 梯度累积器
+        # AO 梯度累积器
         self.gradient_accum = {}
         self.memory_grad = {}
 
@@ -193,7 +193,7 @@ class LatentAdversarialNPOGBGASOHookUnlearner(Trainer):
 
         # 如果使用KL散度作为保留损失，需要一个参考模型
         if self.ref_model is not None:
-            assert 'klr' in self.loss_type or 'AGO' in self.loss_type, \
+            assert 'klr' in self.loss_type or 'AGT' in self.loss_type, \
                 "Reference model is only needed for loss types with KL regularization."
             # 使用DeepSpeed准备参考模型，并设置为评估模式
             self.ref_model = self.e_prepare_deepspeed(self.ref_model)
@@ -262,7 +262,7 @@ class LatentAdversarialNPOGBGASOHookUnlearner(Trainer):
         # == 实现：潜在对抗遗忘学习 (Latent Adversarial Unlearning) ==
         # =================================================================
         self.steps += 1
-        if self.loss_type in ['AGO']:
+        if self.loss_type in ['AGT']:
             x_forget, x_preserve = inputs
 
             if self.adversarial_delta is None:

@@ -14,7 +14,7 @@ CUDA_ID=0
 # lr=1e-4
 # num_epochs=5
 # ds_config="../config/ds_z0_config.json"
-# # "ga_gdr" "ga_klr" "npo_gdr" "npo_klr" "npo" "AGO"
+# # "ga_gdr" "ga_klr" "npo_gdr" "npo_klr" "npo" "AGT"
 # loss_types=("sim_npo_gdr") 
 # max_length=2048
 # ema_decay=0.9

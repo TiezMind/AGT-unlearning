@@ -14,7 +14,7 @@ from omegaconf import OmegaConf
 from src.iterative_trainer import IterativeUnlearner
 from src.sure_trainer import SURE
 from src.memflex_trainer import memflex
-from baselines.src.AGO import LatentAdversarialNPOGBGASOHookUnlearner
+from baselines.src.AGT import AGTUnlearner
 
 
 def unlearn(cfg):
@@ -70,7 +70,7 @@ def unlearn(cfg):
 
     ref_model = (
         AutoModelForCausalLM.from_pretrained(cfg.model_path, config=config, dtype=torch.bfloat16, trust_remote_code = True)
-        if ('npo' in loss_type or 'kl' in loss_type or 'dpo' in loss_type or 'ago' in loss_type) and ('sim_npo' not in loss_type) # 需要计算KL散度的话就需要参考模型
+        if ('npo' in loss_type or 'kl' in loss_type or 'dpo' in loss_type or 'agt' in loss_type) and ('sim_npo' not in loss_type) # 需要计算KL散度的话就需要参考模型
         else None
     )
 
@@ -184,8 +184,8 @@ def unlearn(cfg):
             data_collator=dataset.get_collate_fn(),
             loss_type = loss_type,
         )
-    elif cfg.loss_type in ["AGO"]:
-        trainer = LatentAdversarialNPOGBGASOHookUnlearner(
+    elif cfg.loss_type in ["AGT"]:
+        trainer = AGTUnlearner(
             model=model,
             ref_model=ref_model,
             tokenizer=tokenizer,
