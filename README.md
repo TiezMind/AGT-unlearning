@@ -70,8 +70,6 @@ data/
 
 ## 🏃 Quick Start
 
-We use **LoRA (Low-Rank Adaptation)** for efficient unlearning
-
 ### 1\. Model Configuration
 
 Supported models include `Llama-2-7b-chat`, `Gemma-2b-it`, `Zephyr-7b-beta`, and `ICLM-7b`.
