@@ -8,7 +8,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2602-b31b1b.svg)](https://arxiv.org/)
 [![Venue](https://img.shields.io/badge/Venue-ACL%202026%20Submission-blue)](https://aclweb.org)
 
-[**Paper**](https://arxiv.org/abs/placeholder) | [**Website**](#) | [**Data**](#data-preparation) | [**Citation**](#-citation)
+[**Paper**](https://arxiv.org/) | [**Website**](#) | [**Data**](#-data-preparation) | [**Citation**](#-citation)
 
 </div>
 
