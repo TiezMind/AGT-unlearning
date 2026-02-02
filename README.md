@@ -1,8 +1,21 @@
+<div align="center">
+
 # $AGT^{AO}$: Robust and Stabilized LLM Unlearning via Adversarial Gating Training with Adaptive Orthogonality
 
-[](https://opensource.org/licenses/MIT)
-[](https://www.google.com/search?q=https://arxiv.org/abs/placeholder)
-[](https://aclweb.org)
+<a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
+<a href="https://hydra.cc/"><img alt="Config: Hydra" src="https://img.shields.io/badge/Config-Hydra-89b8cd"></a>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![arXiv](https://img.shields.io/badge/arXiv-2602-b31b1b.svg)](https://arxiv.org/)
+[![Venue](https://img.shields.io/badge/Venue-ACL%202026%20Submission-blue)](https://aclweb.org)
+
+[**Paper**](https://arxiv.org/abs/placeholder) | [**Website**](#) | [**Data**](#data-preparation) | [**Citation**](#-citation)
+
+</div>
+
+---
+
+
+## 📖 Abstract
 
 This repository contains the official implementation for the paper: **"$AGT^{AO}$: Robust and Stabilized LLM Unlearning via Adversarial Gating Training with Adaptive Orthogonality"**
 
@@ -12,6 +25,10 @@ $AGT^{AO}$ is a novel unlearning framework that simultaneously addresses **catas
   <img src="arc.png" alt="arc" width="100%">
   <figcaption>Figure 1: Overview of the $AGT^{AO}$ framework.</figcaption>
   </figure>
+
+## 🔥 News
+- **[2026/02]** Code and arxiv paper released.
+- **[2026/01]** Paper submitted to ACL 2026.
 
 ## 🚀 Key Features
 
@@ -126,10 +143,10 @@ $$\min_{\theta} \max_{||\delta||_p \le \epsilon} (\mathcal{L}_{unlearn}(h_f^{(l)
 
 Comparison of $AGT^{AO}$ against baselines (GA, NPO, SimNPO, LAT, PGU).
 
-# TOFU 基准测试主要结果（Llama-2-7B-chat）
-注：结果为三次评估的平均值，↑表示数值越高越好，↓表示数值越低越好，→0.5表示越接近0.5越理想；加粗为最优结果，下划线为次优结果
+# Main Results of the TOFU Benchmark Test（Llama-2-7B-chat）
+Note: The results are the average of three evaluations. ↑ indicates that the higher the value, the better; ↓ indicates that the lower the value, the better; →0.5 indicates that the closer to 0.5, the more ideal. The bold text represents the optimal result, and the underlined text represents the sub-optimal result.
 
-| method       | 遗忘质量（Forget quality）↑ | KUR↓       | 模型效用（Model utility）↑ | 流畅度（fluency）↑ | 隐私泄露率（PLR）→0.5 |
+| method       | Forget quality ↑ | KUR ↓       | Model utility ↑ | fluency ↑ | PLR →0.5 |
 |--------------|-----------------------------|------------|----------------------------|-------------------|-----------------------|
 | target       | -46.91                      | 0.91       | 0.59                       | 0.87              | 0.98                  |
 | retrain      | 0.00                        | 0.29       | 0.58                       | 0.91              | 0.47                  |
@@ -146,22 +163,22 @@ Comparison of $AGT^{AO}$ against baselines (GA, NPO, SimNPO, LAT, PGU).
 | **$AGT^{AO}$**      | **-9.43**                   | **0.01**   | **0.59**                   | **0.90**          | **0.53**              |
 
 ### 补充说明
-- 评估维度包括三类：遗忘效果（遗忘质量、知识遗忘比率KUR）、效用与质量（模型效用、流畅度）、隐私（隐私泄露率PLR）。
-- KUR和PLR的子指标组成及详情见论文附录
+- The evaluation dimensions include three categories: forgetting effect (forgetting quality, Knowledge Unlearning Ratio - KUR), utility and quality (model utility, fluency), and privacy (Privacy Leakage Rate - PLR).
+- The composition and details of the sub-indicators of KUR and PLR can be found in the appendix of the paper.
 - Note: $AGT^{AO}$ achieves the best balance between unlearning efficacy and utility, with a Privacy Leakage Ratio (PLR) close to the ideal 0.5.
 
 ## 📝 Citation
 
 If you find this code useful, please cite our paper:
 
-<!-- ```bibtex
-@inproceedings{anonymous2025agt,
+```bibtex
+@inproceedings{li2026agt,
   title={$AGT^{AO}$: Robust and Stabilized LLM Unlearning via Adversarial Gating Training with Adaptive Orthogonality},
-  author={Pengyu Li, Lingling Zhang, Zhitao Gao, Bifan Wei,Jun Liu, Yaqiang Wu},
-  booktitle={ACL Submission},
+  author={Li, Pengyu and Zhang, Lingling and Gao, Zhitao and Wei, Bifan and Liu, Jun and Wu, Yaqiang},
+  booktitle={Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL)},
   year={2026}
 }
-``` -->
+```
 
 ## 🙏 Acknowledgements
 
