@@ -96,7 +96,7 @@ Supported models include `Llama-2-7b-chat`, `Gemma-2b-it`, `Zephyr-7b-beta`, and
 To replicate the main results (e.g., on TOFU with Llama-2-7b), run the following command. The hyperparameters are set according to Appendix A.3.
 
 ```bash
-python main.py \
+python baselines/unlearn.py \
     --method agt \
     --model_name_or_path "meta-llama/Llama-2-7b-chat-hf" \
     --dataset tofu \

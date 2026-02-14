@@ -150,7 +150,7 @@ def calculate_conflict_penalty(
 class AGTUnlearner(Trainer):
     """
     一个实现了“潜在对抗遗忘学习”算法的Hugging Face训练器。
-    该算法源于您提供的研究文档，其核心思想是在模型的隐空间（Latent Space）
+    核心思想是在模型的隐空间（Latent Space）
     引入一个min-max对抗博弈，以实现更鲁棒的模型遗忘。
 
     该训练器新增了一种损失类型: 'latent_adv'。
